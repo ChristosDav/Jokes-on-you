@@ -11,6 +11,8 @@ public class EnemyHealth : Health
     public GameObject[] loots;
     public float lootExplotionForce = 4f;
 
+    [SerializeField] private ParticleSystem ps;
+
     protected override void Start()
     {
         base.Start();
@@ -47,6 +49,7 @@ public class EnemyHealth : Health
         GameManager.instance.NotifyEnemyDefeat();
 
         animator?.SetTrigger("Laugh");
+        ps.gameObject.SetActive(true);
 
         //DropLoot();
 
